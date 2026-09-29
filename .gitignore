@@ -47,6 +47,7 @@ htmlcov/
 postgres_data/
 qdrant_data/
 redis_data/
+storage/
 *.log
 dump.rdb
 .qdrant-initialized
