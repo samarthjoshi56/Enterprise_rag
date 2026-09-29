@@ -1,0 +1,37 @@
+[
+  {
+    "id": "eval-001",
+    "question": "What are the Kubernetes deployment requirements?",
+    "ground_truth_keywords": ["cluster", "kubectl", "container registry", "yaml", "manifest"],
+    "expected_answer": "Kubernetes deployment requirements include a running cluster, a container registry, configured kubectl context, and YAML manifests with resource limits and health probes.",
+    "target_service": "kubernetes"
+  },
+  {
+    "id": "eval-002",
+    "question": "How do you achieve high availability in enterprise Kubernetes worker nodes?",
+    "ground_truth_keywords": ["availability zones", "three", "etcd", "worker nodes", "persistent ssd"],
+    "expected_answer": "Deploy worker nodes across at least three availability zones with persistent SSD storage for etcd clusters.",
+    "target_service": "kubernetes"
+  },
+  {
+    "id": "eval-003",
+    "question": "How do you prevent OOM kills on Kubernetes pods?",
+    "ground_truth_keywords": ["resource requests", "limits", "cpu", "memory", "oom"],
+    "expected_answer": "Production workloads must specify CPU and memory resource requests and limits to prevent OOM kills.",
+    "target_service": "kubernetes"
+  },
+  {
+    "id": "eval-004",
+    "question": "What causes Kubernetes CoreDNS latency spikes and how are they handled?",
+    "ground_truth_keywords": ["coredns", "dns", "conntrack", "throttled", "latency"],
+    "expected_answer": "CoreDNS latency spikes can occur when DNS resolution is throttled due to conntrack table exhaustion.",
+    "target_service": "kubernetes"
+  },
+  {
+    "id": "eval-005",
+    "question": "What database systems are used for metadata and vector storage in Enterprise RAG?",
+    "ground_truth_keywords": ["postgresql", "qdrant", "metadata", "vector"],
+    "expected_answer": "Enterprise RAG uses PostgreSQL for relational metadata and Qdrant for dense vector storage.",
+    "target_service": "architecture"
+  }
+]
