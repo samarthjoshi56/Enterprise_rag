@@ -1,10 +1,10 @@
-# Enterprise RAG - Phase 1: Project Setup & Core Infrastructure
+ Enterprise RAG - Phase 1: Project Setup & Core Infrastructure
 
 Production-style architecture foundation for Enterprise RAG (Retrieval-Augmented Generation), featuring FastAPI, PostgreSQL, Qdrant, Redis, LangChain, and LangGraph.
 
 ---
 
-## 🏗️ Project Architecture & Layout
+Project Architecture & Layout
 
 ```
 Enterprise rag/
@@ -41,15 +41,15 @@ Enterprise rag/
 
 ---
 
-## 🚀 Quick Start Guide
+Quick Start Guide
 
-### 1. Prerequisites
-- **Python**: 3.11+ (Python 3.13 recommended)
-- **Docker & Docker Compose** (or local PostgreSQL 16, Qdrant 1.11, Redis 7)
+1. Prerequisites
+- Python: 3.11+ (Python 3.13 recommended)
+- Docker & Docker Compose** (or local PostgreSQL 16, Qdrant 1.11, Redis 7)
 
 ---
 
-### 2. Environment Setup
+2. Environment Setup
 
 Clone/navigate to project directory and activate virtual environment:
 
@@ -66,21 +66,21 @@ cp .env.example .env
 
 ---
 
-### 3. Start Infrastructure Services
+3. Start Infrastructure Services
 
-#### Option A: Docker Compose (Recommended for Containerized Setup)
+ Option A: Docker Compose (Recommended for Containerized Setup)
 ```bash
 docker compose up -d
 ```
 
-#### Option B: Local Services (macOS Brew / Local Binaries)
-- **PostgreSQL**: `brew services start postgresql@16`
-- **Redis**: `brew services start redis`
-- **Qdrant**: `/tmp/qdrant --qdrant-config-path ...` or local qdrant binary
+Option B: Local Services (macOS Brew / Local Binaries)
+- PostgreSQL**: `brew services start postgresql@16`
+- Redis**: `brew services start redis`
+- Qdrant**: `/tmp/qdrant --qdrant-config-path ...` or local qdrant binary
 
 ---
 
-### 4. Verify Connections, Frameworks & Ingestion Pipeline
+4. Verify Connections, Frameworks & Ingestion Pipeline
 
 Run the verification scripts:
 
@@ -106,7 +106,7 @@ python scripts/verify_text2sql.py
 
 ---
 
-### 5. Run FastAPI Application
+5. Run FastAPI Application
 
 Start the development server with Uvicorn:
 
@@ -116,23 +116,24 @@ python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 
 ---
 
-### 6. Core API Endpoints
+6. Core API Endpoints
 
-- **Root Info**: [http://localhost:8000/](http://localhost:8000/)
-- **Swagger Interactive Docs**: [http://localhost:8000/docs](http://localhost:8000/docs)
-- **Health Check**: [http://localhost:8000/health](http://localhost:8000/health)
-- **Upload Document**: `POST /api/v1/documents/upload` (Multipart form-data: `file`)
-- **List Ingested Documents**: `GET /api/v1/documents`
-- **Get Document & Chunks Details**: `GET /api/v1/documents/{document_id}`
-- **Hybrid Search**: `POST /api/v1/search` (Body: `{"query": "...", "alpha": 0.7, "top_n": 5}`)
-- **Text2SQL Schema**: `GET /api/v1/text2sql/schema`
-- **Text2SQL Generate & Stage**: `POST /api/v1/text2sql/generate` (Body: `{"question": "..."}`)
-- **Text2SQL Approve & Execute**: `POST /api/v1/text2sql/execute` (Body: `{"query_id": "...", "approved": true}`)
-- **Text2SQL Direct Query**: `POST /api/v1/text2sql` (Body: `{"question": "...", "approved": true}`)
+
+- Root Info: http://localhost:8000/
+Swagger Interactive Docs: http://localhost:8000/docs
+Health Check: http://localhost:8000/health
+Upload Document: `POST /api/v1/documents/upload` (Multipart form-data: `file`)
+List Ingested Documents: `GET /api/v1/documents`
+Get Document & Chunks Details: `GET /api/v1/documents/{document_id}`
+Hybrid Search: `POST /api/v1/search` (Body: `{"query": "...", "alpha": 0.7, "top_n": 5}`)
+Text2SQL Schema: `GET /api/v1/text2sql/schema`
+Text2SQL Generate & Stage: `POST /api/v1/text2sql/generate` (Body: `{"question": "..."}`)
+Text2SQL Approve & Execute: `POST /api/v1/text2sql/execute` (Body: `{"query_id": "...", "approved": true}`)
+Text2SQL Direct Query: `POST /api/v1/text2sql` (Body: `{"question": "...", "approved": true}`)
 
 ---
 
-### 7. Run Unit & Integration Tests
+7. Run Unit & Integration Tests
 
 ```bash
 pytest
